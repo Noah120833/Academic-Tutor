@@ -1,54 +1,35 @@
-🍎 AI English Tutor
-An interactive React application that provides instant feedback and suggestions for your English sentences using local AI.
+# 🍎 English AI Tutor (Local & Public)
 
-Privacy First: Your sentences are never sent to a cloud server. Everything is processed locally on your machine using Ollama.
+A specialized AI-powered English language assistant built with **React** and **Ollama**. This app provides instant, detailed feedback on English sentences, helping users correct grammar mistakes and discover more natural ways to communicate.
 
-🚀 Quick Start Guide
-1. Install Ollama
-You need the Ollama backend to run the AI model.
+---
 
-Download it here: ollama.com
+## 📖 App Description
 
-2. Download the AI "Tutor" Model
-Open your terminal and run the following command to download the model used by this app:
+The **English AI Tutor** is designed for language learners who want to improve their writing without sacrificing privacy. Unlike standard grammar checkers that send your data to the cloud, this application processes every sentence locally on your own machine.
 
-Bash
+The tutor doesn't just "fix" your mistakes; it explains the **why** behind the correction, acting like a private coach that helps you learn from your errors in real-time.
 
+---
+
+## ✨ Key Features
+
+- ✅ **Instant Correction:** Automatically detects and fixes grammar, spelling, and punctuation errors.
+- 💡 **Natural Phrasing:** Suggests "native-sounding" alternatives for awkward or literal translations.
+- 📝 **Educational Explanations:** Provides brief notes on grammar rules (e.g., "Subject-Verb Agreement" or "Article Usage").
+- 🔒 **100% Private:** No data is sent to external servers. Your writing stays on your computer.
+- 🚀 **Powered by Llama 3:** Uses state-of-the-art Large Language Models for high-quality linguistic feedback.
+
+---
+
+## 🛠️ User Instructions (Setup)
+
+To use this app, you must have **Ollama** running on your computer.
+
+### 1. Download Ollama
+Get the installer at [ollama.com](https://ollama.com).
+
+### 2. Download the Language Model
+Run this in your terminal to download the "brain" for the tutor:
+```bash
 ollama pull llama3
-(Note: You can also use mistral or phi3 depending on your computer's speed.)
-
-3. Start Ollama with Web Permissions
-By default, browsers block websites from talking to local services. To allow the Tutor to work, you must restart Ollama with "CORS" enabled.
-
-Windows (PowerShell):
-
-PowerShell
-
-$env:OLLAMA_ORIGINS="*"; ollama serve
-Mac/Linux:
-
-Bash
-
-OLLAMA_ORIGINS="*" ollama serve
-🛠️ How to Use
-Open the App: [Insert your Vercel or GitHub Pages Link Here]
-
-Enter a Sentence: Type an English sentence you want to check (e.g., "He don't like apples.")
-
-Get Feedback: The AI will analyze your grammar, provide a corrected version, and explain the rule (e.g., "Subject-verb agreement: Use 'doesn't' for third-person singular.")
-
-🧩 Features
-Grammar Correction: Fixes syntax and spelling errors instantly.
-
-Natural Suggestions: Suggests more natural or formal ways to say the same thing.
-
-Local Processing: Fast response times and total data privacy.
-
-⚠️ Troubleshooting
-Connection Error: Ensure you ran the OLLAMA_ORIGINS="*" command in your terminal. If Ollama is already running in the background, close it first!
-
-Model Not Found: Make sure you ran ollama pull llama3.
-
-Slow Responses: AI speed depends on your computer's RAM and GPU. For faster results on older laptops, try running ollama pull phi3 and updating the settings in the app.
-
-Developed with ❤️ using React and Ollama.
