@@ -1,0 +1,293 @@
+:root {
+  --gemini-bg: #131314;
+  --gemini-surface: #1e1f20;
+  --gemini-text: #e3e3e3;
+  --gemini-accent: #00d9a5; 
+  --gemini-gradient: linear-gradient(70deg, #00d9a5, #00b386, #a8e063);
+}
+
+body {
+  background-color: var(--gemini-bg);
+  color: var(--gemini-text);
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  width: 100%;
+  max-width: 800px;
+  min-height: 100vh;
+  padding-top: 5rem;
+}
+
+/* The Bubbly Badge */
+.tutor-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(0, 217, 165, 0.08);
+  border: 1px solid rgba(0, 217, 165, 0.2);
+  padding: 10px 24px;
+  border-radius: 30px;
+  color: var(--gemini-accent);
+  font-weight: 500;
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+}
+
+/* The Responding Animation Ball */
+.status-ball {
+  width: 10px;
+  height: 10px;
+  background-color: var(--gemini-accent);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+.tutor-badge { cursor: pointer; }
+.status-ball[title] { cursor: pointer; }
+
+.status-ball.responding {
+  animation: pulse-green 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse-green {
+  0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(0, 217, 165, 0.7); }
+  70% { transform: scale(1.2); box-shadow: 0 0 0 12px rgba(0, 217, 165, 0); }
+  100% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(0, 217, 165, 0); }
+}
+
+/* Response Text Styling */
+.response-container {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* center the block */
+  line-height: 1.8;
+  padding: 0 20px;
+  margin-bottom: 120px; /* Space for fixed input */
+}
+
+.message-content {
+  white-space: pre-wrap;
+  color: var(--gemini-text);
+  font-size: 1.05rem;
+  max-width: 760px;
+  text-align: left; /* keep the text left-aligned but the block centered */
+}
+
+/* Form / Input Area */
+.input-wrapper {
+  width: 100%;
+  max-width: 720px;
+  position: fixed;
+  bottom: 30px;
+  padding: 0 20px;
+}
+
+form {
+  background-color: var(--gemini-surface);
+  padding: 12px 16px 12px 24px;
+  border-radius: 32px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #3c4043;
+  transition: border-color 0.3s;
+}
+
+form:focus-within {
+  border-color: var(--gemini-accent);
+}
+
+textarea {
+  flex-grow: 1;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+  resize: none;
+  font-family: inherit;
+  margin-right: 10px;
+  margin-top: 15px;
+}
+
+
+button {
+  background: none;
+  border: none;
+  color: var(--gemini-accent);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  transition: background 0.2s;
+}
+
+button:hover:not(:disabled) {
+  background-color: rgba(0, 217, 165, 0.1);
+}
+
+button:disabled {
+  color: #555;
+  cursor: not-allowed;
+}
+
+/* Targets the Headers the AI generates */
+.message-content h3 {
+  color: var(--gemini-accent);
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  border-bottom: 1px solid rgba(0, 217, 165, 0.1);
+  padding-bottom: 5px;
+}
+
+/* Targets the Bullet Points */
+.message-content ul {
+  padding-left: 20px;
+  margin-bottom: 1.0rem;
+   margin-top: -1rem;
+}
+
+.message-content li {
+  margin-bottom: 10px;
+  color: var(--gemini-text);
+   margin-top: -1rem;
+}
+
+/* Makes the "Full Corrected Version" stand out */
+.message-content p {
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+}
+
+/* This styles the **bold** parts in the AI response */
+.message-content strong {
+  background-color: rgba(255, 75, 75, 0.25); /* Transparent red background */
+  color: #ff8a8a; /* Soft red text color */
+  padding: 1px 4px;
+  border-radius: 4px;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255, 75, 75, 0.5);
+  margin: 0 1px;
+}
+
+.message-content {
+  animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 1. Reset the Main Layout */
+.main-layout {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--gemini-bg);
+  overflow-x: hidden;
+}
+
+/* 2. The Sidebar (Hidden by default) */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 280px;
+  height: 100vh;
+  background-color: #171717;
+  border-right: 1px solid #3c4043;
+  z-index: 9999; /* Sit on top of everything */
+  padding: 1.5rem 1rem;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(-100%); /* Completely hidden to the left */
+  box-shadow: 10px 0 30px rgba(0,0,0,0.5);
+}
+
+/* 3. The "Hover Zone" - This is the invisible trigger area on the left edge */
+.sidebar-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 20px; /* How close the mouse needs to get to the edge */
+  z-index: 10000;
+}
+
+/* 4. When hovering near the edge OR the sidebar itself, slide it out */
+.sidebar-container:hover .sidebar,
+.sidebar:hover {
+  transform: translateX(0);
+}
+
+/* 5. Content Adjustments */
+.App {
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Fix the input bar centering since sidebar is now an overlay */
+.input-wrapper {
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+}
+
+/* History List Styling */
+.history-list {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.history-item {
+  padding: 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  color: var(--gemini-text);
+  font-size: 0.9rem;
+  transition: background 0.2s;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.history-item:hover {
+  background: var(--gemini-surface);
+  color: var(--gemini-accent);
+}
+
+.history-item.active {
+  background: var(--gemini-accent);
+  color: var(--gemini-bg);
+  font-weight: 600;
+}
+
+.model-select {
+  width:2%;
+  background: none;
+  border: none;
+  color: var(--gemini-accent);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 20px;
+  display: flex;
+  transition: background 0.2s;
+}

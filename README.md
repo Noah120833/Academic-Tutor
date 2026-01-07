@@ -1,35 +1,16 @@
-# 🍎 English AI Tutor (Local & Public)
+# React + Vite
 
-A specialized AI-powered English language assistant built with **React** and **Ollama**. This app provides instant, detailed feedback on English sentences, helping users correct grammar mistakes and discover more natural ways to communicate.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
----
+Currently, two official plugins are available:
 
-## 📖 App Description
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-The **English AI Tutor** is designed for language learners who want to improve their writing without sacrificing privacy. Unlike standard grammar checkers that send your data to the cloud, this application processes every sentence locally on your own machine.
+## React Compiler
 
-The tutor doesn't just "fix" your mistakes; it explains the **why** behind the correction, acting like a private coach that helps you learn from your errors in real-time.
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
----
+## Expanding the ESLint configuration
 
-## ✨ Key Features
-
-- ✅ **Instant Correction:** Automatically detects and fixes grammar, spelling, and punctuation errors.
-- 💡 **Natural Phrasing:** Suggests "native-sounding" alternatives for awkward or literal translations.
-- 📝 **Educational Explanations:** Provides brief notes on grammar rules (e.g., "Subject-Verb Agreement" or "Article Usage").
-- 🔒 **100% Private:** No data is sent to external servers. Your writing stays on your computer.
-- 🚀 **Powered by Llama 3:** Uses state-of-the-art Large Language Models for high-quality linguistic feedback.
-
----
-
-## 🛠️ User Instructions (Setup)
-
-To use this app, you must have **Ollama** running on your computer.
-
-### 1. Download Ollama
-Get the installer at [ollama.com](https://ollama.com).
-
-### 2. Download the Language Model
-Run this in your terminal to download the "brain" for the tutor:
-```bash
-ollama pull llama3
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
