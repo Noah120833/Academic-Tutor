@@ -1,6 +1,8 @@
-import { useState, useRef, useEffect} from 'react' 
-import Markdown from 'react-markdown'// Necessary to use states
-import './App.css'          
+import React, { useState, useRef, useEffect } from 'react' // 👈 ADD 'React' HERE
+import Markdown from 'react-markdown'
+import './App.css'
+
+// ... rest of your code (Personas, Model Settings, etc.)      
 
 
 const DR_ARIS_STRICT_PERSONA = `
