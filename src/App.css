@@ -280,6 +280,24 @@ button:disabled {
   font-weight: 600;
 }
 
+
+.sidebar-toggle {
+  position: fixed;
+  top: 10px;
+  left: 20px;
+  background: none;
+  border: none;
+  color: var(--gemini-accent);
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 10001; /* Above the sidebar */
+  padding: 8px;
+  border-radius: 20px;
+  display: flex;
+  transition: background 0.2s;
+
+}
+
 .model-select {
   width:2%;
   background: none;
@@ -290,4 +308,156 @@ button:disabled {
   border-radius: 20px;
   display: flex;
   transition: background 0.2s;
+}
+
+.model-select:hover {
+  background-color: rgba(0, 217, 165, 0.1);
+}
+
+.sidebar-header {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--gemini-accent);
+  border-bottom: 1px solid rgba(0, 217, 165, 0.2);
+  padding-bottom: 8px;
+  text-align: end;
+}
+
+/* 1. The Base State (This handles the 'hidden' logic by default) */
+.sidebar-profile {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translate(-50%, -20px); /* Start slightly higher */
+  display: flex; /* Keep flex ON at all times */
+  flex-direction: column;
+  align-items: center;
+  opacity: 0; /* Start invisible */
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease; /* The magic */
+  
+  /* Your visual styles */
+  background-color: var(--gemini-surface);
+  padding: 15px;
+  border-radius: 12px;
+  width: 400px;
+  height: 400px;
+  box-shadow: 0 2px 14px rgba(5, 255, 147, 0.3);
+  z-index: 999;
+  filter:none;
+}
+
+/* 2. The Visible State (Triggered by your React ternary) */
+.sidebar-profile.visible {
+  opacity: 1;
+  transform: translate(-50%, 0); /* Slide into place */
+  pointer-events: auto;
+}
+
+/* 3. The Hidden State (Optional, but ensures it stays gone) */
+.sidebar-profile.hidden {
+  opacity: 0;
+  transform: translate(-50%, -20px);
+  pointer-events: none;
+}
+
+
+.profileimage {
+  width: 60px;
+  height: 60px;
+  background-color: var(--gemini-accent);
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.profile-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--gemini-text);
+  margin-bottom: 4px;
+}
+
+.ENLevel {
+  font-size: 0.85rem;
+  color: var(--gemini-accent);
+}
+
+
+/* In your App.css */
+.sidebar-profile.hidden {
+  display: none; /* Physically removes it from the layout */
+}
+
+.sidebar-profile.visible {
+  display: flex; /* Makes it appear */
+}
+
+.loginform {
+  /* Positioning Fix: Center perfectly in the screen */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centers both vertically and horizontally */
+  
+  /* Sizing Fix: Remove height: 400px to let content breathe */
+  width: 100%;
+  max-width: 400px; /* Slightly narrower looks more professional */
+  background-color: var(--gemini-surface);
+  padding: 40px; /* More padding makes it feel "Premium" */
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(5, 255, 147, 0.1);
+  
+  /* Layout Fix: Center all children */
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+.loginform label {
+  align-self: flex-start; /* Keeps labels on the left */
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--gemini-text);
+}
+
+.loginform input {
+  width: 100%; /* Now takes up the full 400px (minus padding) */
+  padding: 12px; 
+  border: 1px solid #3c4043;
+  border-radius: 8px;
+  background-color: var(--gemini-bg);
+  color: var(--gemini-text);
+  margin-bottom: 20px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.loginform input:focus {
+  border-color: var(--gemini-accent); /* Glow effect when typing */
+}
+
+.loginform button {
+  width: 100%;
+  padding: 14px;
+  background-color: var(--gemini-accent);
+  border: none;
+  color: var(--gemini-bg);
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  max-width: 100px;
+  text-align: center;
+  justify-self: center;
+  align-self: center;
+  padding-left: 25px;
+}
+
+.loginform button:hover {
+  background-color: #00b386;
+  transform: translateY(-2px); /* Slight lift on hover */
+  box-shadow: 0 5px 15px rgba(5, 255, 147, 0.4);
 }
