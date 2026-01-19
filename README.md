@@ -33,3 +33,4 @@ Get the installer at [ollama.com](https://ollama.com).
 Run this in your terminal to download the "brain" for the tutor:
 ```bash
 ollama pull llama3
+ollama pull llama3.2
