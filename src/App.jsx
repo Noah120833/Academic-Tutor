@@ -437,7 +437,9 @@ setDisplayedMessage(formattedOutput);
       <h2>Login</h2>
       <input type="text" placeholder="Username"  onChange={Login} />
       <input type="password" placeholder="Password" onChange={Login2}/>
-      <button type="button" id="dependencies" >Download depedencies</button>
+      <a href="/setup.bat" download="setup.bat" style="text-decoration: none;">
+        <button type="button" id="dependencies">Download depedencies</button>
+      </a>
       <button onClick={saveData}>Login</button>
     </div>
     <div 
