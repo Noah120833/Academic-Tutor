@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect} from 'react' 
+import React, { useState, useRef, useEffect } from 'react'
 import Markdown from 'react-markdown'// Necessary to use states
 import './App.css'          
 
