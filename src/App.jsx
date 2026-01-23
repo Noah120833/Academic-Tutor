@@ -1,8 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react' // 👈 ADD 'React' HERE
-import Markdown from 'react-markdown'
-import './App.css'
-
-// ... rest of your code (Personas, Model Settings, etc.)      
+import { useState, useRef, useEffect} from 'react' 
+import Markdown from 'react-markdown'// Necessary to use states
+import './App.css'          
 
 
 const DR_ARIS_STRICT_PERSONA = `
@@ -10,7 +8,7 @@ const DR_ARIS_STRICT_PERSONA = `
 [TASK]: CEFR Detection & 1-to-1 Word Replacement
 
 [FORMAT]:
-### Proficiency Level: [CEFR_LEVEL]
+### Proficiency Level [CEFR_LEVEL]
 ### Full Corrected Version: [Corrected Text]
 
 [RULES]:
@@ -19,21 +17,31 @@ const DR_ARIS_STRICT_PERSONA = `
 `;
 
 const DR_ARIS_FLUID_PERSONA = `
-You are Dr. Aris, a Sophisticated Academic Mentor. Your goal is to edit English prose to an Oxford-tier standard while strictly adhering to the user's original intent.
+You are Dr. Aris, a Sophisticated Academic Mentor and CEFR Examiner. Your goal is to accurately assess and refine English prose to an Oxford-tier standard.
 
 ### MANDATORY PROTOCOL:
 1. ### Proficiency Level
-Categorize the input using CEFR levels (e.g., [B2]).
+Analyze the input for complex structures (Inversion, Conditionals, Passive Voice). 
+Categorize strictly by CEFR levels. 
+IMPORTANT: You must provide the level in square brackets, e.g., [B1] or [C2]. 
+If the level is borderline, use a range like [A1-B1].
+
+- [C1/C2]: Complex grammar (Inversion), nuanced vocabulary.
+- [B2]: Detailed text, clear professional flow.
+- [A1-B1]: Foundational or intermediate daily English.
+
 2. ### Acknowledgment
-A sophisticated, one-sentence observation on the user's statement.
+A sophisticated observation on the user's statement.
+
 3. ### Analysis
 A Markdown table: | Original | Upgrade | Reason |.
+
 4. ### Full Corrected Version
 The elegant, refined version of the user's sentence.
 
 ### RULES:
-- NO FABRICATION: Do not add new ideas, descriptions, or adjectives (e.g., if the user says "I like toast," do not add "crispy texture").
-- PRECISION: Replace simple verbs with sophisticated alternatives (e.g., "I possess a penchant for toast").
+- ACCURACY: You must not default to B2. If the user uses advanced inversion or academic jargon, you MUST label it C1 or C2.
+- NO FABRICATION: Do not add new facts.
 - BOLDING: Wrap every changed word in **double asterisks**.
 - HEADINGS: Every section MUST start with "### ".
 `;
@@ -172,7 +180,7 @@ const [levels, setLevels] = useState(() => {
   ? [
       { role: 'system', content: DR_ARIS_STRICT_PERSONA },
       { role: 'user', content: `Input: "${userInput}"` },
-      { role: 'assistant', content: '### Proficiency Level:' } // Use H3 syntax here
+      { role: 'assistant', content: '### Proficiency Level' } // Use H3 syntax here
     ] // ... rest of your existing logic
   : [
       { role: 'system', content: DR_ARIS_FLUID_PERSONA },
@@ -281,8 +289,17 @@ formattedOutput = formattedOutput.replace(
 );
 
 // 3. YOUR EXISTING HISTORY LOGIC (Unchanged)
+// This looks for ANY of your levels inside the brackets, even if there's a dash like [A1-B1]
+// 3. IMPROVED HISTORY LOGIC
 const levelsarr = ["A1", "A2", "B1", "B2", "C1", "C2"];
-const hasLevel = levelsarr.find(level => finalText.includes(`[${level}]`));
+
+// This finds the level even if the AI forgot the brackets []
+const hasLevel = levelsarr.find(level => {
+  // We look for the level (like A1) as a standalone word in the text
+  // The \b ensures we don't accidentally match "A1" inside a longer word
+  const regex = new RegExp(`\\b${level}\\b`);
+  return regex.test(finalText);
+});
 
 if (hasLevel) {
   const updatedLevels = [...levels, hasLevel]; 
@@ -420,6 +437,7 @@ setDisplayedMessage(formattedOutput);
       <h2>Login</h2>
       <input type="text" placeholder="Username"  onChange={Login} />
       <input type="password" placeholder="Password" onChange={Login2}/>
+      <button type="button" id="dependencies" >Download depedencies</button>
       <button onClick={saveData}>Login</button>
     </div>
     <div 
@@ -466,4 +484,6 @@ setDisplayedMessage(formattedOutput);
   </div>
 );
 }
+
+localStorage.clear();
 

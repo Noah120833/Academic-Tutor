@@ -432,6 +432,7 @@ button:disabled {
   margin-bottom: 20px;
   outline: none;
   transition: border-color 0.2s;
+  max-width: 300px;
 }
 
 .loginform input:focus {
@@ -461,3 +462,39 @@ button:disabled {
   transform: translateY(-2px); /* Slight lift on hover */
   box-shadow: 0 5px 15px rgba(5, 255, 147, 0.4);
 }
+
+.loginform h2 {
+  margin-bottom: 30px;
+  color: var(--gemini-accent);
+}
+
+#dependencies {
+background-color: rgb(111, 111, 111);
+color: rgb(44, 44, 44);
+border-radius: 8px;
+padding: 8px 14px;
+cursor: pointer;
+font-weight: 600;
+margin-bottom: -57px;
+margin-left: 120px;
+font-size: 1.5vh;
+border: 2px solid rgb(111, 111, 111);
+}
+
+#dependencies:hover {
+  background-color: rgb(39, 39, 39);
+  box-shadow: none;
+  transform: translateY(0);
+  border: #00b386 2px solid;
+  color: #00b386;
+  
+}
+.loginform button {
+  margin-left: -120px;
+}
+
+.loginform button:active {
+  transform: translateY(0); /* Return to normal on click */
+  box-shadow: none;
+}
+/* Responsive Adjustments */
