@@ -469,27 +469,28 @@ button:disabled {
 }
 
 #dependencies {
-  background-color: rgb(111, 111, 111);
-  color: #ffffff; /* Improved contrast for readability */
-  border-radius: 8px;
-  padding: 10px 20px; /* Increased padding for a more professional look */
-  cursor: pointer;
-  font-weight: 600;
-  
-  /* Layout */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  white-space: nowrap; /* Prevents text from going outside or wrapping */
-  
-  /* Positioning */
-  margin-bottom: 10px; /* Removed the deep negative margin for stability */
-  margin-left: 0;      /* Centering is usually safer inside the flex container */
-  
-  /* Typography */
-  font-size: 14px;     /* Changed from vh to px for stability */
-  border: 2px solid rgb(111, 111, 111);
-  transition: background-color 0.2s;
+
+background-color: rgb(111, 111, 111);
+
+color: rgb(44, 44, 44);
+
+border-radius: 8px;
+
+padding: 8px 14px;
+
+cursor: pointer;
+
+font-weight: 600;
+
+margin-bottom: -57px;
+
+margin-left: 120px;
+padding-left:20px
+
+font-size: 1.5vh;
+
+border: 2px solid rgb(111, 111, 111);
+
 }
 
 #dependencies:hover {
