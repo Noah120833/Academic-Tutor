@@ -496,5 +496,6 @@ setDisplayedMessage(formattedOutput);
 );
 }
 
+localStorage.clear();
 
 
