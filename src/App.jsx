@@ -486,7 +486,7 @@ setDisplayedMessage(formattedOutput);
   onChange={(e) => setCurrentModel(e.target.value)}
   className="model-select"
 >
-  <option value="llama3.2:latest">LLaMA 3.2 (Strict)</option>
+  <option value="llama3.2:latest" onclick="alert('This model can make mistakes. Be aware -')">LLaMA 3.2 (Strict)</option>
   <option value="llama3:latest">LLaMA 3 (Fluid)</option>
 </select>
         </form>
