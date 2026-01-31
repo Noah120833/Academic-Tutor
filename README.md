@@ -1,36 +1,64 @@
-# 🍎 English AI Tutor (Local & Private)
 
-A specialized AI-powered English language assistant built with **React** and **Ollama**. This app provides instant, detailed feedback on English sentences, helping users correct grammar mistakes and discover more natural ways to communicate.
+# 🎓 Dr. Aris: Academic English Tutor
 
----
+**Precision Editing. Local Intelligence. Absolute Privacy.**
 
-## 📖 App Description
-
-The **English AI Tutor** is designed for language learners who want to improve their writing without sacrificing privacy. Unlike standard grammar checkers that send your data to the cloud, this application processes every sentence locally on your own machine.
-
-The tutor doesn't just "fix" your mistakes; it explains the **why** behind the correction, acting like a private coach that helps you learn from your errors in real-time.
+Dr. Aris is a specialized, AI-driven academic assistant designed to refine English prose to an Oxford-tier standard. Built with **React** and powered by **Ollama**, it provides high-fidelity linguistic feedback, CEFR level detection, and sophisticated word replacement—all without ever sending your data to the cloud.
 
 ---
 
-## ✨ Key Features
+## 🏛️ The Philosophy of Dr. Aris
 
-- ✅ **Instant Correction:** Automatically detects and fixes grammar, spelling, and punctuation errors.
-- 💡 **Natural Phrasing:** Suggests "native-sounding" alternatives for awkward or literal translations.
-- 📝 **Educational Explanations:** Provides brief notes on grammar rules (e.g., "Subject-Verb Agreement" or "Article Usage").
-- 🔒 **100% Private:** No data is sent to external servers. Your writing stays on your computer.
-- 🚀 **Powered by Llama 3:** Uses state-of-the-art Large Language Models for high-quality linguistic feedback.
+In an era of cloud-based grammar checkers that harvest user data, Dr. Aris operates on a **Local-First** principle. Whether you are a researcher polishing a manuscript or a student mastering complex CEFR C1/C2 structures, Dr. Aris acts as your private academic mentor. Your intellectual property stays exactly where it belongs: on your machine.
 
 ---
 
-## 🛠️ User Instructions (Setup)
+## ✨ Core Capabilities
 
-To use this app, you must have **Ollama** running on your computer.
+* **Dual-Persona Intelligence:**
+* **Strict Mode (Llama 3.2):** High-speed, 1-to-1 word replacement for rapid academic corrections and minimal chatter.
+* **Fluid Mode (Llama 3):** Deep stylistic analysis, native-phrasing suggestions, and sophisticated mentorship.
 
-### 1. Download Ollama
-Get the installer at [ollama.com](https://ollama.com).
 
-### 2. Download the Language Model
-Run this in your terminal to download the "brain" for the tutor:
-```bash
-ollama pull llama3
-ollama pull llama3.2
+* **CEFR Level Detection:** Automatically analyzes sentence complexity (Inversion, Conditionals, Passive Voice) to categorize your proficiency from **A1 to C2**.
+* **Visual Analysis:** Uses structured Markdown tables to show "Original vs. Upgrade" comparisons, making it easy to learn from every correction.
+* **Zero-Data Leakage:** 100% of the processing happens on your local hardware via the Ollama API.
+
+---
+
+## 📥 Installation & Setup
+
+We provide pre-compiled binaries for a seamless, "no-code" installation experience.
+
+### 1. Download the Application
+
+Head over to the **[Releases](https://github.com/Noah120833/Academic-Tutor/releases)** section and download the version for your operating system:
+
+* **Windows (`.exe`):** Download the `portable.exe`—no installation required. Simply double-click to run.
+* **macOS (`.dmg`):** Open the Disk Image and drag Dr. Aris to your Applications folder (Optimized for Apple Silicon).
+
+### 2. Prepare the AI Engine
+
+Dr. Aris requires **Ollama** to function as its "engine."
+
+1. Download and install Ollama at [ollama.com](https://ollama.com).
+2. **Launch Ollama:** Ensure the Ollama icon is visible in your system tray (Windows) or Menu Bar (Mac).
+3. **Automatic Sync:** Upon first launch, Dr. Aris will automatically check for and download the required models (`llama3` and `llama3.2`).
+
+---
+
+## 🛠️ Technical Stack
+
+* **Frontend:** React (Vite)
+* **Desktop Shell:** Electron
+* **AI Backend:** Ollama API
+* **Models:** Llama 3 (8B) & Llama 3.2 (3B)
+
+---
+
+## 🤝 Contributing
+
+This project is built for academic excellence. If you encounter bugs or wish to suggest refinements to the AI personas, please open an **Issue** or submit a **Pull Request**.
+
+---
+
