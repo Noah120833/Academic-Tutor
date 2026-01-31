@@ -58,7 +58,7 @@ Dr. Aris requires **Ollama** to function as its "engine."
 
 ## 🤝 Contributing
 
-This project is built for academic excellence. If you encounter bugs or wish to suggest refinements to the AI personas, please open an **Issue** or submit a **Pull Request**.
+This project is built for academic excellence. If you encounter bugs or wish to suggest refinements to the AI personas, please contact me.
 
 ---
 
